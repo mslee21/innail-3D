@@ -31,7 +31,7 @@
 ### 핵심 기술
 - **Plenoptic 1.0/2.0** 재구성 알고리즘
 - **Microlens Array (MLA)** 기반 광학 시스템
-- **Deep Learning** 기반 Depth Estimation (Depth-Anything)
+- **Deep Learning** 기반 Depth Estimation (Plenomatrix-innail3D)
 - **실시간 영상 처리** 및 3D 시각화
 
 ### 연구 목표
@@ -55,7 +55,7 @@
 
 ### 3. **Depth Map 생성**
 - Light Field 재구성 알고리즘
-- Depth-Anything 딥러닝 모델 통합
+- ETRI Plenomatrix 기반 innail3D를 위한 알고리즘/딥러닝 모델 통합
 - 3D Point Cloud 시각화
 
 ### 4. **광학 시뮬레이션**
@@ -85,7 +85,8 @@
 
 ### Deep Learning
 - `PyTorch` - 딥러닝 프레임워크
-- `Depth-Anything` - Depth Estimation 모델
+- 'cupy' - cuda 프레임워크
+- `Plenomatrix-innail3D` - Depth Estimation 모델
 - `torchvision` - 영상 변환 유틸리티
 
 ### Light Field Processing
@@ -99,7 +100,6 @@
 - `PyQt5` - 데스크톱 애플리케이션
 - `Tkinter` - 간단한 UI 컨트롤
 - `Matplotlib` - 그래프 및 3D 시각화
-
 ---
 
 ## 🚀 설치 방법
@@ -107,7 +107,7 @@
 ### 시스템 요구사항
 - **OS**: Ubuntu 20.04+ / Windows 10+ / macOS 11+
 - **Python**: 3.8 이상
-- **GPU**: CUDA 지원 GPU (권장, Depth-Anything 사용 시)
+- **GPU**: CUDA 지원 GPU (권장, Plenomatrix-innail3D 사용 시)
 - **RAM**: 16GB 이상 권장
 
 ### 1. 저장소 클론
