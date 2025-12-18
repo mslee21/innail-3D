@@ -31,12 +31,15 @@ __pycache__/
 # 대용량 파일 제외 (필요하면 추가)
 large_files/
 
+# 작업 기록 폴더 (개인 작업 노트)
+work_list/
+
 # IDS 카메라 드라이버 (대용량)
-software/ids-3991/**/*.run
-software/ids-3991/**/*.tgz
-software/ids-3991/**/*.zip
-hardware/U3-3991SE-C-HQ*/SW/*.deb
-hardware/U3-3991SE-C-HQ*/SW/*.tgz
+processing/ids-3991/**/*.run
+processing/ids-3991/**/*.tgz
+processing/ids-3991/**/*.zip
+cameras/U3-3991SE-C-HQ*/SW/*.deb
+cameras/U3-3991SE-C-HQ*/SW/*.tgz
 
 # 대용량 이미지 파일
 *.tif

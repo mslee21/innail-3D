@@ -17,7 +17,7 @@
 - [설치 방법](#-설치-방법)
 - [사용법](#-사용법)
 - [프로젝트 구조](#-프로젝트-구조)
-- [하드웨어](#-하드웨어)
+- [카메라 하드웨어](#-카메라-하드웨어)
 - [개발 로드맵](#-개발-로드맵)
 - [기여하기](#-기여하기)
 - [라이선스](#-라이선스)
@@ -134,7 +134,7 @@ pip install -r requirements.txt
 
 ### 5. IDS 카메라 드라이버 설치 (선택사항)
 ```bash
-cd software/ids-3991/ids-software-suite-linux-64-4.95.2-debian
+cd processing/ids-3991/ids-software-suite-linux-64-4.95.2-debian
 sudo ./ueye_4.94.2.1258_amd64.run
 ```
 
@@ -145,25 +145,25 @@ sudo ./ueye_4.94.2.1258_amd64.run
 ### 카메라 실시간 스트리밍
 ```bash
 # Arducam 30fps 캡처
-python hardware/Aducam_12MP_B0433/B0433_testcode/ImageCapture_30fps_B0433_opencv.py
+python cameras/Aducam_12MP_B0433/B0433_testcode/ImageCapture_30fps_B0433_opencv.py
 
 # IDS 카메라 고해상도 캡처
-python hardware/U3-3991SE-C-HQ\ Rev_1_2/TestCode/imageCapture_U3-3991SE-C-HQ.py
+python cameras/U3-3991SE-C-HQ\ Rev_1_2/TestCode/imageCapture_U3-3991SE-C-HQ.py
 ```
 
 ### 캘리브레이션 실행
 ```python
-python software/reconstruction/centroid_extraction/calibration_0426.py
+python processing/reconstruction/centroid_extraction/calibration_0426.py
 ```
 
 ### Depth Map 생성
 ```python
-python software/depth_map/PlenoMatrix_Innail_Cert.py
+python processing/depth_map/PlenoMatrix_Innail_Cert.py
 ```
 
 ### UVC 카메라 속성 조정
 ```python
-python software/testcode/B0433_UVC_attribute_test.py
+python processing/testcode/B0433_UVC_attribute_test.py
 ```
 
 **키보드 컨트롤:**
@@ -181,19 +181,25 @@ python software/testcode/B0433_UVC_attribute_test.py
 ```plaintext
 innail-3D/
 │
-├── hardware/                         # 🔌 하드웨어 인터페이스 및 테스트 코드
+├── cameras/                          # 📷 카메라 인터페이스 및 제어
+│   ├── camera_base.py                # 추상 베이스 클래스 (ABC)
+│   │
 │   ├── Aducam_12MP_B0433/            # Arducam 12MP 카메라 모듈
-│   │   └── B0433_testcode/
-│   │       ├── ImageCapture_30fps_B0433_opencv.py    # 30fps 실시간 캡처
-│   │       ├── ImageCapture_GUI.py                   # PyQt5 GUI
-│   │       └── optical_simulation/                   # MTF, DOF 시뮬레이션
+│   │   ├── camera_b0433.py           # ✨ CameraB0433 클래스 (재사용 가능)
+│   │   └─ㅓ─ B0433_testcode/           # 레거시 테스트 코드
+│   │       ├── ImageCapture_30fps_B0433_opencv.py
+│   │       ├── ImageCapture_GUI.py
+│   │       └── optical_simulation/
 │   │
 │   └── U3-3991SE-C-HQ Rev_1_2/       # IDS 산업용 카메라
-│       ├── TestCode/
-│       │   └── imageCapture_U3-3991SE-C-HQ.py        # 4K 캡처 및 크롭
-│       └── SW/                                        # 드라이버 및 문서
+│       ├── camera_u3_3991se.py       # ✨ CameraU3_3991SE 클래스 (재사용 가능)
+│       ├── TestCode/                 # 레거시 테스트 코드
+│       │   └── imageCapture_U3-3991SE-C-HQ.py
+│       └── SW/                       # 드라이버 및 문서
 │
-├── software/                         # 💻 소프트웨어 파이프라인
+├── camera_launcher.py                # 🚀 통합 카메라 런처 (클래스 기반)
+│
+├── processing/                       # 🔬 영상 처리 및 분석 파이프라인
 │   ├── depth_map/                    # Depth Map 추출
 │   │   ├── PlenoMatrix_Innail_Cert.py                # 메인 파이프라인
 │   │   └── Cert_image/                               # 캘리브레이션 데이터
@@ -218,7 +224,7 @@ innail-3D/
 │   ├── opensource/                   # 외부 오픈소스
 │   │   └── ArducamUVCPythonDemo/                     # Arducam 공식 데모
 │   │
-│   └── ids-3991/                     # IDS 드라이버
+│   └── ids-3991/                     # IDS 드라이버 및 SDK
 │       └── ids-software-suite-linux-64-4.95.2-debian/
 │
 ├── data/                             # 📁 데이터 저장소
@@ -237,7 +243,7 @@ innail-3D/
 
 ---
 
-## 🔌 하드웨어
+## � 카메라 하드웨어
 
 ### 1. **Arducam 12MP B0433**
 - **해상도**: 1920×1080 @ 30fps

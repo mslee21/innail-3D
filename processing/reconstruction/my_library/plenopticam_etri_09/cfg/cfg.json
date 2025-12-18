@@ -1,0 +1,31 @@
+{
+    "cal_meta": "",
+    "cal_meth": "",
+    "cal_path": "",
+    "dir_remo": false,
+    "img_rota": "",
+    "lfp_path": "",
+    "opt_arti": false,
+    "opt_awb_": false,
+    "opt_cali": false,
+    "opt_colo": true,
+    "opt_cont": false,
+    "opt_dbug": false,
+    "opt_dpth": true,
+    "opt_lier": false,
+    "opt_pflu": false,
+    "opt_prnt": true,
+    "opt_refi": false,
+    "opt_refo": true,
+    "opt_rota": false,
+    "opt_sat_": false,
+    "opt_view": true,
+    "opt_vign": true,
+    "ptc_leng": 49,
+    "ran_refo": [
+        0,
+        2
+    ],
+    "smp_meth": "",
+    "val_rota": ""
+}
