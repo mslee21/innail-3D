@@ -34,8 +34,8 @@ large_files/
 # 작업 기록 폴더 (개인 작업 노트)
 work_list/
 
-# 프로토타입 테스트 폴더 (Etude - 연습곡)
-Etude/
+# 프로토타입 테스트 폴더 (etude - 연습곡)
+etude/
 
 # IDS 카메라 드라이버 (대용량)
 processing/ids-3991/**/*.run
